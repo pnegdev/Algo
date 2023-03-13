@@ -1,0 +1,32 @@
+ALGORITHM CheckpointAlgo
+VAR
+    phrase : STRING;
+    nbcarac : INTEGER := 0 ;
+    nbmots : INTEGER := 0 ;
+    nbvoyelles : INTEGER := 0 ;
+    g,m,c : INTEGER := 0 ;
+BEGIN
+    Write("Ecrivez une phrase")
+    Read(phrase)
+
+    WHILE (phrase[g] <> ".") DO
+        nbcarac := nbcarac + 1 ;
+        g := g + 1 ;
+    END_WHILE
+
+    WHILE (m<nbcarac) DO
+        IF (phrase[m] = " ") THEN
+            nbmots := nbmots + 1 ;
+        END_IF
+        m := m + 1 ;
+    END_WHILE
+
+    WHILE (c<nbcarac) DO
+        IF (phrase[c] = "a" OR "e" OR "i" OR "o" OR "u" OR "y") THEN
+            nbvoyelles := nbvoyelles + 1 ;
+        END_IF
+        c := c + 1 ;        
+    END_WHILE
+
+    Write("Cette phrase contient ", nbcarac + 1, " caractères, ", nbmots, " mots et ", nbvoyelles, " voyelles.")
+END
